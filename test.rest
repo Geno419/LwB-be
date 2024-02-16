@@ -6,10 +6,27 @@ POST http://localhost:8000/students
 content-Type: application/json
 
 {
-    "firstName": "Mike",
+    "firstName": "Frank",
     "lastName": "Smith",
-    "userName": "msmith",
+    "userName": "frankmith",
     "userPassword": "ASDAesdfhjbsf21",
     "userAvatarImg": "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
 }
+
+###
+
+PATCH http://localhost:8000/students/65cf7c1c5e615daa4b1afebe
+content-Type: application/json
+
+{
+    
+    "firstName": "Frank go away!!!!"
+    
+}
+
+###
+
+DELETE http://localhost:8000/students/65cf7c1c5e615daa4b1afebe
+
+
 
