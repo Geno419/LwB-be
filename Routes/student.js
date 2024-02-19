@@ -6,6 +6,7 @@ const { getStudent } = require("../Utils/getStudent");
 router.get("/", async (req, res) => {
   try {
     const students = await Student.find();
+    res.status(200).send({ students });
     console.log(students);
   } catch {
     (err) => {
@@ -26,7 +27,7 @@ router.post("/", async (req, res) => {
   });
   try {
     const newStudent = await student.save();
-    res.status(201).JSON(newStudent);
+    res.status(201).send({ newStudent });
   } catch {
     (err) => {
       console.error(err);
@@ -57,6 +58,7 @@ router.patch("/:id", getStudent, async (req, res) => {
     const updatedStudent = await res.student.save();
     console.log(res.student);
     res.JSON(updatedStudent);
+    send({ updatedStudent });
   } catch {
     (err) => {
       console.error(err);
@@ -68,29 +70,12 @@ router.delete("/:id", getStudent, async (req, res) => {
   try {
     await res.student.deleteOne();
     res.JSON({ message: "Delete successful!" });
+    send({ message: "Delete successful!" });
   } catch {
     (err) => {
       console.error(err);
     };
   }
 });
-
-// async function getStudent(req, res, next) {
-//   let student;
-
-//   try {
-//     student = await Student.findById(req.params.id);
-//     if (student === null) {
-//       return res.status(404).JSON({ message: "Can't find student" });
-//     }
-//   } catch {
-//     (err) => {
-//       console.error(err);
-//     };
-//   }
-
-//   res.student = student;
-//   next();
-// }
 
 module.exports = router;
