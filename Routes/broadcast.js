@@ -4,4 +4,4 @@ const { broadcastController } = require('../Controllers/server.controller')
 
 router.post("/", broadcastController)
 
-module.export = router
+module.exports = router;
