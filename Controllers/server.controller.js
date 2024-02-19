@@ -24,7 +24,6 @@ async function consumerController({ body }, res) {
         };
 
         res.json(payload);
-       console.log("ok")
     } catch (error) {
         console.log("error with viewing", error);
         res.status(500).json({ error: "Error occurred while viewing" });
