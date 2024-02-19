@@ -3,16 +3,6 @@ const router = express.Router();
 const Student = require("../Models/student.model");
 const { getStudent } = require("../Utils/getStudent");
 
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const { consumerController, broadcastController } = require('../Controllers/server.controller');
-const app = express();
-
-app.use(cors());
-app.use(express.static('public'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
 router.get("/", async (req, res) => {
   try {
     const students = await Student.find();
@@ -87,9 +77,6 @@ router.delete("/:id", getStudent, async (req, res) => {
     };
   }
 });
-
-app.post("/consumer", consumerController);
-app.post('/broadcast', broadcastController);
 
 
 module.exports = router;
