@@ -5,7 +5,7 @@ const { getStudent } = require("../Utils/getStudent");
 
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { consumerController, broadcastController } = require('./server.controller');
+const { consumerController, broadcastController } = require('../Controllers/server.controller');
 const app = express();
 
 app.use(cors());
