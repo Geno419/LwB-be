@@ -55,6 +55,7 @@ router.patch("/:id", getStudent, async (req, res) => {
 
   try {
     const updatedStudent = await res.student.save();
+    console.log(res.student);
     res.JSON(updatedStudent);
   } catch {
     (err) => {

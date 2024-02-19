@@ -15,7 +15,7 @@ content-Type: application/json
 
 ###
 
-PATCH http://localhost:8000/students/65cf7c1c5e615daa4b1afebe
+PATCH http://localhost:8000/students/65cf8f30bdb12383e12ed5ea
 content-Type: application/json
 
 {
@@ -26,7 +26,7 @@ content-Type: application/json
 
 ###
 
-DELETE http://localhost:8000/students/65cf7c1c5e615daa4b1afebe
+DELETE http://localhost:8000/students/65cf8f30bdb12383e12ed5ea
 
 
 
