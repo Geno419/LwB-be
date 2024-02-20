@@ -26,7 +26,7 @@ const deleteUser = async (req, res, next) => {
 if (req.params.id === req.user.id) {
   try {
     await Teacher.findByIdAndDelete(req.params.id);
-    res.status(200).json("User has been deleted.");
+    res.status(200).json("Teacher has been deleted.");
   } catch (err) {
     next(err);
   }

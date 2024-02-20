@@ -5,6 +5,7 @@ const app = express();
 const cors = require("cors");
 const cookieParser = require ('cookie-parser')
 const authRoutes = require ("./Routes/auth");
+const teacherRoutes = require ("./Routes/teacher");
 const studentRoutes = require("./Routes/student");
 const broadcastRoutes = require("./Routes/broadcast");
 const viewerRoutes = require("./Routes/viewer");
@@ -52,7 +53,8 @@ app.use(cookieParser())
 //   const fl = req.file;
 //   res.send({ file: fl, success: true, message: "File uploaded successfully" });
 // });
-app.use("/api/auth", authRoutes);
+app.use("/api/", authRoutes);
+app.use("/api/teachers", teacherRoutes );
 app.use("/students", studentRoutes);
 app.use("/consumer", viewerRoutes);
 app.use("/broadcast", broadcastRoutes);
