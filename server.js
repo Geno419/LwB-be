@@ -6,6 +6,9 @@ const cors = require("cors");
 const studentRoutes = require("./Routes/student");
 const broadcastRoutes = require("./Routes/broadcast");
 const viewerRoutes = require("./Routes/viewer");
+const subjectRouter = require("./Routes/subject");
+const yearRouter = require("./Routes/year");
+const quizRouter = require("./Routes/quiz");
 const notesRoutes = require("./Routes/notes");
 // const path = require("path");
 // const multer = require("multer");
@@ -49,8 +52,15 @@ app.use(express.json());
 app.use("/students", studentRoutes);
 app.use("/consumer", viewerRoutes);
 app.use("/broadcast", broadcastRoutes);
-app.use("/events", eventRoutes);
+// app.use("/events", eventRoutes);
 app.use("/notes", notesRoutes);
+
+// subjects
+app.use("/subjects", subjectRouter)
+// Year
+app.use("/years", yearRouter)
+// Quiz
+app.use("/quiz", quizRouter)
 app.listen("8000", () => {
   console.log("server started on 8000");
 });

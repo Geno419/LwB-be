@@ -96,4 +96,107 @@ Get http://localhost:8000/notes?teacher=Tim
 
 ###
 
+<<<<<<< HEAD
+###
+
+# SUBJECTS
+
+GET http://localhost:8000/subjects
+
+###
+
+POST http://localhost:8000/subjects 
+content-Type: application/json
+
+{
+    "subject": "Chemistry"
+}
+
+
+###
+
+# YEARS
+
+GET http://localhost:8000/years
+
+###
+
+POST http://localhost:8000/years 
+content-Type: application/json
+
+{
+    "year": "Year 13"
+}
+
+
+
+
+###
+
+# QUIZ
+
+GET http://localhost:8000/quiz
+
+###
+
+POST http://localhost:8000/quiz 
+content-Type: application/json
+
+{
+    "quizData": [{
+        "question": "!!!!How many years did the 100 years war last?",
+        "correct": "116 years",
+        "incorrect1": "100 years",
+        "incorrect2": "101 years",
+        "incorrect3": "99 years"
+    },
+    {
+        "question": "Who was the first man to walk on the moon, and in which year?",
+        "correct": "Neil Armstrong, 1969",
+        "incorrect1": "Neil Armstrong, 1968",
+        "incorrect2": "Harrison Schmitt, 1969",
+        "incorrect3": "Harrison Schmitt, 1968"
+    },
+    {
+        "question": "Which century did the French Revolution take place in??",
+        "correct": "The 18th Century",
+        "incorrect1": "The 17th Century",
+        "incorrect2": "The 19th Century",
+        "incorrect3": "The 16th Century"
+    },
+    {
+        "question": "The Peloponnesian War was fought between Athens and which other ancient Greek state?",
+        "correct": "Sparta",
+        "incorrect1": "Rhodes",
+        "incorrect2": "Aegina",
+        "incorrect3": "Eretria"
+    }],
+    "title": "How good are you in History?",
+    "subject": "History",
+    "schoolyear": "Year 6",
+    "teacher": "Miss Smith"
+}
+
+###
+
+
+# GET BY subject
+
+
+GET http://localhost:8000/quiz?schoolyear=5
+
+
+
+
+###
+
+DELETE http://localhost:8000/quiz/65d4bc4bc04c7f6ecdb3a791
+
+
+###
+
+
+GET http://localhost:8000/quiz/65d48d8c276207429046b972
+=======
 Get http://localhost:8000/notes
+>>>>>>> main
