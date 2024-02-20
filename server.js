@@ -17,7 +17,7 @@ const bodyParser = require('body-parser');
 app.use(cors());
 const uri = process.env.DB_URL;
 
-app.use(express.static('public'));
+app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
