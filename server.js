@@ -6,6 +6,9 @@ const cors = require("cors");
 const studentRouter = require("./Routes/student");
 const broadcastRouter = require("./Routes/broadcast");
 const viewerRouter = require("./Routes/viewer");
+const subjectRouter = require("./Routes/subject");
+const yearRouter = require("./Routes/year");
+const quizRouter = require("./Routes/quiz");
 const bodyParser = require("body-parser");
 
 app.use(cors());
@@ -30,7 +33,14 @@ app.use("/students", studentRouter);
 
 app.use("/consumer", viewerRouter);
 app.use("/broadcast", broadcastRouter);
-app.use("/videos", videoRouter);
+// app.use("/videos", videoRouter);
+
+// subjects
+app.use("/subjects", subjectRouter)
+// Year
+app.use("/years", yearRouter)
+// Quiz
+app.use("/quiz", quizRouter)
 
 app.listen("8000", () => {
   console.log("server started on 8000");
