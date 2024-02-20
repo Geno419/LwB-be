@@ -3,6 +3,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const cors = require("cors");
+const cookieParser = require ('cookie-parser')
+const authRoutes = require ("./Routes/auth");
 const studentRoutes = require("./Routes/student");
 const broadcastRoutes = require("./Routes/broadcast");
 const viewerRoutes = require("./Routes/viewer");
@@ -33,6 +35,7 @@ async function connect() {
 }
 connect();
 app.use(express.json());
+app.use(cookieParser())
 // Set up GridFS storage engine
 // const storage = new GridFsStorage({
 //   url: uri,
@@ -49,6 +52,7 @@ app.use(express.json());
 //   const fl = req.file;
 //   res.send({ file: fl, success: true, message: "File uploaded successfully" });
 // });
+app.use("/api/auth", authRoutes);
 app.use("/students", studentRoutes);
 app.use("/consumer", viewerRoutes);
 app.use("/broadcast", broadcastRoutes);
@@ -61,6 +65,17 @@ app.use("/subjects", subjectRouter)
 app.use("/years", yearRouter)
 // Quiz
 app.use("/quiz", quizRouter)
+
+app.use((err, req, res, next) => {
+  const status = err.status || 500;
+  const message = err.message || "Something went wrong!";
+  return res.status(status).json({
+    success: false,
+    status,
+    message,
+  });
+});
+
 app.listen("8000", () => {
   console.log("server started on 8000");
 });
