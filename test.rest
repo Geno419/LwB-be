@@ -33,6 +33,44 @@ DELETE http://localhost:8000/students/65cf8f30bdb12383e12ed5ea
 POST http://localhost:8000/upload
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 
+
+
+### Get event ###
+
+GET http://localhost:8000/events
+
+### Post event ###
+
+POST http://localhost:8000/events
+Content-Type: application/json
+
+{
+
+  "title": "Meeting with the coders",
+  "start": "2024-02-20T10:00:00.000Z",
+  "end": "2024-02-20T11:00:00.000Z",
+  "description": "Discuss project updates"
+
+}
+
+### Patch event ###
+
+PATCH http://localhost:8000/events/65d4902b2b131f2e6b36d4b5
+Content-Type: application/json
+
+{
+
+  "description": "Project updates"
+
+}
+
+
+### Delete Event ###
+
+DELETE http://localhost:8000/events/65d481ddad59794c16027f36
+
+###
+
 ----WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="file"; filename="2024-02-14-161247.mp4"
 Content-Type: video/mp4
@@ -46,12 +84,16 @@ Post http://localhost:8000/notes
 content-Type: application/json
 
 {
-    "title": "Introduction to Biology",
-    "teacher": "Jane",
+    "title": "Introduction to Biology111",
+    "teacher": "Tim",
     "subject": "Biology",
     "body": "This course covers the basic principles of biology, including cell biology, genetics, evolution, and ecology."
 }
 
 ###
 
-Get http://localhost:8000/notes?teacher=Jane
+Get http://localhost:8000/notes?teacher=Tim
+
+###
+
+Get http://localhost:8000/notes
