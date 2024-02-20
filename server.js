@@ -55,7 +55,7 @@ app.use(cookieParser())
 // });
 app.use("/api/", authRoutes);
 app.use("/api/teachers", teacherRoutes );
-app.use("/students", studentRoutes);
+app.use("/api/students", studentRoutes);
 app.use("/consumer", viewerRoutes);
 app.use("/broadcast", broadcastRoutes);
 // app.use("/events", eventRoutes);

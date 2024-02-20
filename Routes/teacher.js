@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const {update, deleteUser, getUser} = require('../Controllers/teacher.controller')
+const {update, deleteUser, getUser, getAllUsers} = require('../Controllers/teacher.controller')
 
 
 const verifyToken = require ("../verifyToken")
@@ -15,5 +15,7 @@ const verifyToken = require ("../verifyToken")
   //get a teacher
   router.get("/:id", getUser);
 
+  //get all teachers
+  router.get("/", getAllUsers);
 
 module.exports = router
