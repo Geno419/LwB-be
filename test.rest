@@ -40,6 +40,18 @@ Content-Type: video/mp4
 This is the content of the file.
 ----WebKitFormBoundary7MA4YWxkTrZu0gW--
 
+###
 
+Post http://localhost:8000/notes
+content-Type: application/json
 
+{
+    "title": "Introduction to Biology",
+    "teacher": "Jane",
+    "subject": "Biology",
+    "body": "This course covers the basic principles of biology, including cell biology, genetics, evolution, and ecology."
+}
 
+###
+
+Get http://localhost:8000/notes?teacher=Jane

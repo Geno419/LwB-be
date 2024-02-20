@@ -3,9 +3,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const cors = require("cors");
-const studentRouter = require("./Routes/student");
-const broadcastRouter = require("./Routes/broadcast");
-const viewerRouter = require("./Routes/viewer");
+const studentRoutes = require("./Routes/student");
+const broadcastRoutes = require("./Routes/broadcast");
+const viewerRoutes = require("./Routes/viewer");
+const notesRoutes = require("./Routes/notes")
 const path = require("path");
 const multer = require("multer");
 const {GridFsStorage} = require("multer-gridfs-storage");
@@ -49,10 +50,12 @@ app.post("/upload", upload.single("file"), (req, res) => {
   res.send({file: fl, success: true, message: 'File uploaded successfully' });
 });
 
-app.use("/students", studentRouter);
+app.use("/students", studentRoutes);
 
-app.use("/consumer", viewerRouter);
-app.use('/broadcast', broadcastRouter);
+app.use("/consumer", viewerRoutes);
+app.use('/broadcast', broadcastRoutes);
+
+app.use("/notes", notesRoutes)
 
 app.listen("8000", () => {
   console.log("server started on 8000");
