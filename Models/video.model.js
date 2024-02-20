@@ -1,9 +1,14 @@
 const mongoose = require("mongoose");
 
 const videoSchema = new mongoose.Schema({
+  userId: {
+    type: String,
+    required: true,
+  },
   title: {
     type: String,
     required: true,
+    unique: true,
   },
   subject: {
     type: String,
@@ -12,7 +17,6 @@ const videoSchema = new mongoose.Schema({
   teacher: {
     type: String,
     required: true,
-    unique: true,
   },
   date: {
     type: Date,
@@ -22,6 +26,10 @@ const videoSchema = new mongoose.Schema({
   url: {
     type: String,
     required: true,
+  },
+  views: {
+    type: Number,
+    default: 0,
   },
   comments:[{
     type:String

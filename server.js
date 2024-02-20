@@ -6,6 +6,7 @@ const cors = require("cors");
 const cookieParser = require ('cookie-parser')
 const authRoutes = require ("./Routes/auth");
 const teacherRoutes = require ("./Routes/teacher");
+const videoRoutes = require ("./Routes/video");
 const studentRoutes = require("./Routes/student");
 const broadcastRoutes = require("./Routes/broadcast");
 const viewerRoutes = require("./Routes/viewer");
@@ -57,6 +58,7 @@ app.use("/api/", authRoutes);
 app.use("/api/teachers", teacherRoutes );
 app.use("/api/students", studentRoutes);
 app.use("/consumer", viewerRoutes);
+app.use("/api/videos", videoRoutes);
 app.use("/broadcast", broadcastRoutes);
 // app.use("/events", eventRoutes);
 app.use("/notes", notesRoutes);
