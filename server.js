@@ -3,10 +3,16 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const cors = require("cors");
-const studentRouter = require("./Routes/student");
-const broadcastRouter = require("./Routes/broadcast");
-const viewerRouter = require("./Routes/viewer");
-const bodyParser = require("body-parser");
+const studentRoutes = require("./Routes/student");
+const broadcastRoutes = require("./Routes/broadcast");
+const viewerRoutes = require("./Routes/viewer");
+const notesRoutes = require("./Routes/notes")
+const path = require("path");
+const multer = require("multer");
+const {GridFsStorage} = require("multer-gridfs-storage");
+const Grid = require("gridfs-stream");
+const bodyParser = require('body-parser');
+
 
 app.use(cors());
 const uri = process.env.DB_URL;
@@ -26,11 +32,30 @@ async function connect() {
 connect();
 app.use(express.json());
 
-app.use("/students", studentRouter);
+// Set up GridFS storage engine
+const storage = new GridFsStorage({
+  url: uri,
+  file: (req, file) => {
+    return {
+      filename: file.originalname
+    };
+  }
+});
+const upload = multer({ storage });
 
-app.use("/consumer", viewerRouter);
-app.use("/broadcast", broadcastRouter);
-app.use("/videos", videoRouter);
+// Route to handle file uploads
+app.post("/upload", upload.single("file"), (req, res) => {
+  console.log("File uploaded successfully:", req.file);
+  const fl= req.file;
+  res.send({file: fl, success: true, message: 'File uploaded successfully' });
+});
+
+app.use("/students", studentRoutes);
+
+app.use("/consumer", viewerRoutes);
+app.use('/broadcast', broadcastRoutes);
+
+app.use("/notes", notesRoutes)
 
 app.listen("8000", () => {
   console.log("server started on 8000");
