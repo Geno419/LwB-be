@@ -30,3 +30,41 @@ DELETE http://localhost:8000/students/65cf8f30bdb12383e12ed5ea
 
 
 
+
+
+### Get event ###
+
+GET http://localhost:8000/events
+
+### Post event ###
+
+POST http://localhost:8000/events
+Content-Type: application/json
+
+{
+
+  "title": "Meeting with the coders",
+  "start": "2024-02-20T10:00:00.000Z",
+  "end": "2024-02-20T11:00:00.000Z",
+  "description": "Discuss project updates"
+
+}
+
+### Patch event ###
+
+PATCH http://localhost:8000/events/65d4902b2b131f2e6b36d4b5
+Content-Type: application/json
+
+{
+
+  "description": "Project updates"
+
+}
+
+
+### Delete Event ###
+
+DELETE http://localhost:8000/events/65d481ddad59794c16027f36
+
+
+
