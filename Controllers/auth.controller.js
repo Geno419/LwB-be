@@ -9,6 +9,10 @@ const createError = require ("../error")
 
 const signupStudent = async (req, res, next) => {
     try {
+      const userExists = await Student.findOne({ userName: req.body.userName });
+      if (userExists) {
+        return res.status(400).json({ error: "Username already exists!" });
+    }
       const salt = bcrypt.genSaltSync(10);
       const hash = bcrypt.hashSync(req.body.userPassword, salt);
       const newStudent = new Student({ ...req.body, userPassword: hash })
@@ -50,6 +54,10 @@ const signinStudent = async (req, res, next) => {
   const signupTeacher = async (req, res, next) => {
     
     try {
+      const userExists = await Teacher.findOne({ userName: req.body.userName });
+      if (userExists) {
+        return res.status(400).json({ error: "Username already exists!" });
+    }
       const salt = bcrypt.genSaltSync(10);
       const hash = bcrypt.hashSync(req.body.userPassword, salt);
       const newStudent = new Teacher({ ...req.body, userPassword: hash })
