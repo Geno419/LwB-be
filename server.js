@@ -54,11 +54,11 @@ app.use(cookieParser())
 //   const fl = req.file;
 //   res.send({ file: fl, success: true, message: "File uploaded successfully" });
 // });
-app.use("/api/", authRoutes);
-app.use("/api/teachers", teacherRoutes );
-app.use("/api/students", studentRoutes);
+app.use("/", authRoutes);
+app.use("/teachers", teacherRoutes );
+app.use("/students", studentRoutes);
 app.use("/consumer", viewerRoutes);
-app.use("/api/videos", videoRoutes);
+app.use("/videos", videoRoutes);
 app.use("/broadcast", broadcastRoutes);
 // app.use("/events", eventRoutes);
 app.use("/notes", notesRoutes);
