@@ -3,10 +3,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const cors = require("cors");
-const cookieParser = require ('cookie-parser')
-const authRoutes = require ("./Routes/auth");
-const teacherRoutes = require ("./Routes/teacher");
-const videoRoutes = require ("./Routes/video");
+const cookieParser = require("cookie-parser");
+const authRoutes = require("./Routes/auth");
+const teacherRoutes = require("./Routes/teacher");
+const videoRoutes = require("./Routes/video");
 const studentRoutes = require("./Routes/student");
 const broadcastRoutes = require("./Routes/broadcast");
 const viewerRoutes = require("./Routes/viewer");
@@ -37,7 +37,7 @@ async function connect() {
 }
 connect();
 app.use(express.json());
-app.use(cookieParser())
+app.use(cookieParser());
 // Set up GridFS storage engine
 // const storage = new GridFsStorage({
 //   url: uri,
@@ -55,20 +55,20 @@ app.use(cookieParser())
 //   res.send({ file: fl, success: true, message: "File uploaded successfully" });
 // });
 app.use("/", authRoutes);
-app.use("/teachers", teacherRoutes );
+app.use("/teachers", teacherRoutes);
 app.use("/students", studentRoutes);
 app.use("/consumer", viewerRoutes);
 app.use("/videos", videoRoutes);
 app.use("/broadcast", broadcastRoutes);
-// app.use("/events", eventRoutes);
+app.use("/events", eventRoutes);
 app.use("/notes", notesRoutes);
 
 // subjects
-app.use("/subjects", subjectRouter)
+app.use("/subjects", subjectRouter);
 // Year
-app.use("/years", yearRouter)
+app.use("/years", yearRouter);
 // Quiz
-app.use("/quiz", quizRouter)
+app.use("/quiz", quizRouter);
 
 app.use((err, req, res, next) => {
   const status = err.status || 500;

@@ -7,9 +7,7 @@ router.get("/", async (req, res) => {
   try {
     const events = await Event.find();
     res.status(200).send({ events });
-    console.log(events);
   } catch (error) {
-    console.error(error);
     res.status(500).send({ message: "Internal Server Error" });
   }
 });
@@ -23,9 +21,8 @@ router.post("/", async (req, res) => {
   });
   try {
     const newEvent = await event.save();
-    res.status(201).send({ newEvent });
+    res.status(201).send({ newEvent: newEvent });
   } catch (error) {
-    console.error(error);
     res.status(500).send({ message: "Internal Server Error" });
   }
 });

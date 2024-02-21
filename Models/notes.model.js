@@ -19,22 +19,33 @@ const notesSchema = new mongoose.Schema({
   year: {
     type: String,
   },
-  body:{
+  body: {
     type: String,
-    required: true
+    required: true,
   },
-  date:{
+  date: {
     type: Date,
   },
-  comments: [{
-    body:{
+  comments: [
+    {
+      username: {
         type: String,
-        required: true
-    }
-  }],
+        required: true,
+      },
+      body: {
+        type: String,
+        required: true,
+      },
+      date: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
   votes: {
     type: Number,
-  }
+    default: 0,
+  },
 });
 
 module.exports = mongoose.model("Notes", notesSchema);

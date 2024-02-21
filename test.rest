@@ -2,7 +2,7 @@ GET http://localhost:8000/students
  
 ###
 
-POST http://localhost:8000/students 
+POST http://localhost:8000/students
 content-Type: application/json
 
 {
@@ -15,7 +15,7 @@ content-Type: application/json
 
 ###
 
-PATCH http://localhost:8000/students/65cf8f30bdb12383e12ed5ea
+PATCH http://localhost:8000/students/65cfa567943996fb1dcc9c69
 content-Type: application/json
 
 {
@@ -49,13 +49,13 @@ Content-Type: application/json
   "title": "Meeting with the coders",
   "start": "2024-02-20T10:00:00.000Z",
   "end": "2024-02-20T11:00:00.000Z",
-  "description": "Discuss project updates"
+  "description": "test1"
 
 }
 
 ### Patch event ###
 
-PATCH http://localhost:8000/events/65d4902b2b131f2e6b36d4b5
+PATCH http://localhost:8000/events/65d61a2e98a7db509cb2161f
 Content-Type: application/json
 
 {
@@ -67,7 +67,7 @@ Content-Type: application/json
 
 ### Delete Event ###
 
-DELETE http://localhost:8000/events/65d481ddad59794c16027f36
+DELETE http://localhost:8000/events/65d48f41603d0046abd3d330
 
 ###
 
@@ -94,12 +94,8 @@ content-Type: application/json
 
 Get http://localhost:8000/notes?teacher=Tim
 
-###
 
-<<<<<<< HEAD
-###
-
-# SUBJECTS
+### SUBJECTS
 
 GET http://localhost:8000/subjects
 
@@ -129,8 +125,6 @@ content-Type: application/json
 }
 
 
-
-
 ###
 
 # QUIZ
@@ -138,7 +132,6 @@ content-Type: application/json
 GET http://localhost:8000/quiz
 
 ###
-
 POST http://localhost:8000/quiz 
 content-Type: application/json
 
@@ -176,27 +169,71 @@ content-Type: application/json
     "schoolyear": "Year 6",
     "teacher": "Miss Smith"
 }
-
 ###
 
+##GET BY subject
 
-# GET BY subject
-
-
+###
 GET http://localhost:8000/quiz?schoolyear=5
 
-
-
-
 ###
-
 DELETE http://localhost:8000/quiz/65d4bc4bc04c7f6ecdb3a791
 
+###
+GET http://localhost:8000/quiz/65d48d8c276207429046b972
+
+
+
+
+###VIDEO COMMENTS
 
 ###
+GET http://localhost:8000/videos/comment/65d4f7c062a817164048addf
 
+###
+POST http://localhost:8000/videos/comment/65d4f7c062a817164048addf
+content-Type: application/json
 
-GET http://localhost:8000/quiz/65d48d8c276207429046b972
-=======
+{
+    "username": "test",
+    "body":"1234",
+    "date": "yesterday"
+}
+
+###
+delete http://localhost:8000/videos/comment/65d4f7c062a817164048addf/65d5f0ea64669227b2ac31c7
+
+###NOTES
+
+###
 Get http://localhost:8000/notes
->>>>>>> main
+
+###
+Post http://localhost:8000/notes
+content-Type: application/json
+
+{
+    "title": "Introduction to Biology111",
+    "teacher": "Tim",
+    "subject": "Biology",
+    "body": "This course covers the basic principles of biology, including cell biology, genetics, evolution, and ecology."
+}
+
+###
+Get http://localhost:8000/notes?teacher=Tim
+
+###
+Get http://localhost:8000/notes/comment/65d49036fc287ca6784ad427
+
+###
+Post http://localhost:8000/notes/comment/65d49036fc287ca6784ad427
+content-Type: application/json
+
+{
+    "username": "john",
+    "body":"this is so educational!!!!",
+    "date": "today"
+}
+
+###
+delete http://localhost:8000/notes/comment/65d49036fc287ca6784ad427/65d61648bd1d7e7e58286030
