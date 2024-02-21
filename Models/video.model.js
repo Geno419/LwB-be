@@ -21,7 +21,7 @@ const videoSchema = new mongoose.Schema({
   date: {
     type: Date,
     required: true,
-    default: Date.now
+    default: Date.now,
   },
   url: {
     type: String,
@@ -31,9 +31,22 @@ const videoSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  comments:[{
-    type:String
-  }]
+  comments: [
+    {
+      username: {
+        type: String,
+        required: true,
+      },
+      body: {
+        type: String,
+        required: true,
+      },
+      date: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
 });
 
 module.exports = mongoose.model("Video", videoSchema);
