@@ -11,7 +11,7 @@ const signupStudent = async (req, res, next) => {
     try {
       const userExists = await Student.findOne({ userName: req.body.userName });
       if (userExists) {
-        return res.status(400).json({ error: "Username already exists!" });
+        return next(createError(400, "Username already exists!"));
     }
       const salt = bcrypt.genSaltSync(10);
       const hash = bcrypt.hashSync(req.body.userPassword, salt);
@@ -56,7 +56,7 @@ const signinStudent = async (req, res, next) => {
     try {
       const userExists = await Teacher.findOne({ userName: req.body.userName });
       if (userExists) {
-        return res.status(400).json({ error: "Username already exists!" });
+        return next(createError(400, "Username already exists!"));
     }
       const salt = bcrypt.genSaltSync(10);
       const hash = bcrypt.hashSync(req.body.userPassword, salt);
