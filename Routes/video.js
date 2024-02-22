@@ -1,5 +1,4 @@
 const express = require("express");
-const verifyToken = require("../verifyToken");
 const router = express.Router();
 const {
   addVideo,
@@ -13,9 +12,9 @@ const {
   deleteVideoComments,
 } = require("../Controllers/video.controller");
 
-router.post("/", verifyToken, addVideo);
-router.put("/:id", verifyToken, updateVideo);
-router.delete("/:id", verifyToken, deleteVideo);
+router.post("/", addVideo);
+router.put("/:id", updateVideo);
+router.delete("/:id",deleteVideo);
 router.get("/:id", getVideo);
 router.get("", getAllVideos);
 router.put("/view/:id", addView);
