@@ -70,7 +70,20 @@ const addView = async (req, res, next) => {
 
 const getAllVideos = async (req, res, next) => {
   try {
-    const video = await Video.find();
+    const { subject, year, teacher } = req.query;
+
+    const query = {};
+    if (subject) {
+      query.subject = subject;
+    }
+    if (year) {
+      query.year = year;
+    }
+    if (teacher) {
+      query.teacher = teacher;
+    }
+
+    const video = await Video.find(query);
     res.status(200).json(video);
   } catch (err) {
     next(err);
