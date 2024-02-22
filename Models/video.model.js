@@ -14,6 +14,10 @@ const videoSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  year: {
+    type: String,
+    required: true,
+  },
   teacher: {
     type: String,
     required: true,
