@@ -3,7 +3,13 @@ const createError = require("../error.js");
 const Video = require("../Models/video.model.js");
 
 const addVideo = async (req, res, next) => {
-  const newVideo = new Video({...req.body });
+  const newVideo = new Video({
+    title: req.body.title,
+    subject: req.body.subject,
+    teacher: req.body.teacher,
+    year: req.body.year,
+    url: req.body.url,
+  });
   try {
     const savedVideo = await newVideo.save();
     res.status(200).json(savedVideo);
@@ -16,7 +22,7 @@ const updateVideo = async (req, res, next) => {
   try {
     const video = await Video.findById(req.params.id);
     if (!video) return next(createError(404, "Video not found!"));
-    if (req.user.id === video.userId) {
+    
       const updatedVideo = await Video.findByIdAndUpdate(
         req.params.id,
         {
@@ -25,9 +31,6 @@ const updateVideo = async (req, res, next) => {
         { new: true }
       );
       res.status(200).json(updatedVideo);
-    } else {
-      return next(createError(403, "You can update only your video!"));
-    }
   } catch (err) {
     next(err);
   }
@@ -37,12 +40,9 @@ const deleteVideo = async (req, res, next) => {
   try {
     const video = await Video.findById(req.params.id);
     if (!video) return next(createError(404, "Video not found!"));
-    if (req.user.id === video.userId) {
+   
       await Video.findByIdAndDelete(req.params.id);
       res.status(200).json("The video has been deleted.");
-    } else {
-      return next(createError(403, "You can delete only your video!"));
-    }
   } catch (err) {
     next(err);
   }
