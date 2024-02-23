@@ -17,7 +17,7 @@ router.post("/", async (req, res) => {
     title: req.body.title,
     start: req.body.start,
     end: req.body.end,
-    description: req.body.description,
+    url: req.body.url,
   });
   try {
     const newEvent = await event.save();
