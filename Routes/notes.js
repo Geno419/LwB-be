@@ -13,9 +13,9 @@ router.get("/", async (req, res) => {
     if (req.query.subject) {
       query.subject = req.query.subject;
     }
-    if (req.query.category) {
-      query.category = req.query.category;
-    }
+    // if (req.query.category) {
+    //   query.category = req.query.category;
+    // }
     if (req.query.year) {
       query.year = req.query.year;
     }
@@ -29,6 +29,17 @@ router.get("/", async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
+
+//GET all images for all notes
+// router.get("/images", async (req, res) => {
+//   try {
+//     const images = await Notes.find({'images'}); // Project only the 'images' field
+//     res.status(200).json(images);
+//   } catch (error) {
+//     console.error("Error fetching images:", error);
+//     res.status(500).json({ message: error.message });
+//   }
+// });
 
 // GET a specific note by ID
 router.get("/:id", getNote, (req, res) => {
@@ -170,4 +181,55 @@ const removeVideoComments = async (noteID, commentId) => {
     throw error;
   }
 };
+
+// GET images for a specific note
+router.get("/image/:noteID", async (req, res, next) => {
+  try {
+    const { noteID } = req.params;
+    const images = await fetchNoteImages(noteID);
+    res.status(200).json(images);
+  } catch (error) {
+    next(error);
+  }
+});
+const fetchNoteImages = async (noteId) => {
+  try {
+    const note = await Notes.findById(noteId);
+    if (!note) {
+      throw new Error("Note not found");
+    }
+    return note.images;
+  } catch (error) {
+    throw error;
+  }
+};
+
+// POST a new image for a specific note
+router.post("/image/:noteID", async (req, res, next) => {
+  try {
+    const { noteID} = req.params;
+    const newImage = {
+      img_title: req.body.img_title,
+      img_url: req.body.img_url
+    };
+    addNotesImage(noteID, newImage);
+    res.status(200).send(newImage);
+  } catch (error) {
+    next(error);
+  }
+});
+
+const addNotesImage = async (noteID, newImage) => {
+  try {
+    const note = await Notes.findById(noteID);
+    if (!note) {
+      throw new Error("Note not found");
+    }
+    note.images.push(newImage);
+    await note.save();
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = router;

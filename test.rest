@@ -220,7 +220,7 @@ content-Type: application/json
 }
 
 ###
-Get http://localhost:8000/notes?teacher=Tim
+Get http://localhost:8000/notes/65d49312fc287ca6784ad42c
 
 ###
 Get http://localhost:8000/notes/comment/65d49036fc287ca6784ad427
@@ -237,3 +237,17 @@ content-Type: application/json
 
 ###
 delete http://localhost:8000/notes/comment/65d49036fc287ca6784ad427/65d61648bd1d7e7e58286030
+
+###
+
+Post http://localhost:8000/notes/image/65d4b8a47dbd8584b0c284e3
+content-Type: application/json
+
+{
+    "img_title": "bug",
+    "img_url": "https://ichef.bbci.co.uk/images/ic/976xn/p0cgdvxh.png"
+}
+
+###
+
+Get http://localhost:8000/notes
