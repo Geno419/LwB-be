@@ -70,12 +70,14 @@ app.use("/years", yearRouter);
 // Quiz
 app.use("/quiz", quizRouter);
 
+/////////////////////just for testing will be deleted///////////////////////////////////////
 app.get("/test", (req, res) => {
   res.send({
     test: "ALL GOOD!!",
   });
 });
 
+////////////////////////////////////////////////////////////////////////////////////////////
 app.use((err, req, res, next) => {
   const status = err.status || 500;
   const message = err.message || "Something went wrong!";
