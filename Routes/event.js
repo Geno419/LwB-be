@@ -7,9 +7,7 @@ router.get("/", async (req, res) => {
   try {
     const events = await Event.find();
     res.status(200).send({ events });
-    console.log(events);
   } catch (error) {
-    console.error(error);
     res.status(500).send({ message: "Internal Server Error" });
   }
 });
@@ -19,13 +17,12 @@ router.post("/", async (req, res) => {
     title: req.body.title,
     start: req.body.start,
     end: req.body.end,
-    description: req.body.description,
+    url: req.body.url,
   });
   try {
     const newEvent = await event.save();
-    res.status(201).send({ newEvent });
+    res.status(201).send({ newEvent: newEvent });
   } catch (error) {
-    console.error(error);
     res.status(500).send({ message: "Internal Server Error" });
   }
 });
@@ -40,8 +37,8 @@ router.patch("/:id", getEvent, async (req, res) => {
   if (req.body.end != null) {
     res.event.end = req.body.end;
   }
-  if (req.body.description != null) {
-    res.event.description = req.body.description;
+  if (req.body.url != null) {
+    res.event.url = req.body.url;
   }
 
   try {

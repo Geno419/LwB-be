@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test-video</title>
+    <link rel="stylesheet" href="main.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+</head>
+<body class=" text-black">
+
+    <header class="bg-white">
+		<div class="container mx-auto">
+			<div class="flex justify-center items-center py-4">
+				<h1 class="font-bold ">record screen</h1>
+			</div>
+		</div>
+	</header>
+    
+    <main class="overflow-hidden">
+		<div class="container mx-auto py-8 px-4">
+			<button id="my-button" class="mx-8 flex-1 bg-pink-500 p-4 uppercase text-lg font-bold transition-all duration-300 hover:opacity-80 disabled:opacity-50 mb-4">
+				start stream
+			</button>
+			<h2 class="text-xl text-black-500 uppercase font-light mb-4">
+				video
+			</h2>
+
+			<video src="" id='video' autoplay class="video-feedback bg-black w-full h-auto mb-4"></video>
+
+			<div class="flex flex-wrap -mx-4 mb-8">
+				<button class="start-recording mx-4 flex-1 bg-pink-500 p-4 uppercase text-lg font-bold transition-all duration-300 hover:opacity-80 disabled:opacity-50">
+					start 
+				</button>
+				<button class="stop-recording mx-4 flex-1 bg-pink-500 to to-pink-500 p-4 uppercase text-lg font-bold transition-all duration-300 hover:opacity-90 disabled:opacity-50" disabled>
+					Stop 
+				</button>
+			</div>
+
+			<div class="recorded-video-wrap ">
+				<h2 class="text-xl text-white-500 uppercase font-light mb-4">
+					Recorded
+				</h2>
+
+				<video src="" class="recorded-video bg-black w-full h-auto mb-8"></video>
+				<div class="flex flex-wrap -mx-4">
+					<a class="download-video text-center mx-4 flex-1 bg-pink-500 p-4 uppercase text-lg font-bold transition-all duration-300 hover:opacity-90 disabled:opacity-50" disabled>
+						Save
+					</a>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<script src="main.js"></script>
+	<script src="index.js"></script>
+
+	
+
+
+</body>
+</html>

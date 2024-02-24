@@ -13,10 +13,10 @@ const eventSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
-  description: {
-    type: String,
-    required: false,
-  },
+  url: {
+  type: String,
+  required: false,
+  }
 });
 
 module.exports = mongoose.model("Event", eventSchema);
