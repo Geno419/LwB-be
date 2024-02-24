@@ -37,7 +37,7 @@ router.patch("/:id", getEvent, async (req, res) => {
   if (req.body.end != null) {
     res.event.end = req.body.end;
   }
-  if (req.body.description != null) {
+  if (req.body.url != null) {
     res.event.url = req.body.url;
   }
 
