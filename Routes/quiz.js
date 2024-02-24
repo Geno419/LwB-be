@@ -62,7 +62,7 @@ router.post("/", async (req, res)=>{
 // DELETE
 router.delete("/:id", getQuizById,  async (req, res) =>{
     try{
-    await res.quiz.remove();
+    await res.quiz.deleteOne();
     res.json({ message: "Delete successful!" });
     send({ message: "Delete successful!" });
     }catch(err){
