@@ -34,6 +34,106 @@ POST http://localhost:8000/upload
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 
 
+###
+
+# SUBJECTS
+
+GET http://localhost:8000/subjects
+
+###
+
+POST http://localhost:8000/subjects 
+content-Type: application/json
+
+{
+    "subject": "Chemistry"
+}
+
+
+###
+
+# YEARS
+
+GET http://localhost:8000/years
+
+###
+
+POST http://localhost:8000/years 
+content-Type: application/json
+
+{
+    "year": "Year 13"
+}
+
+
+
+
+###
+
+# QUIZ
+
+GET http://localhost:8000/quiz
+
+###
+
+POST http://localhost:8000/quiz 
+content-Type: application/json
+
+{
+    "quizData": [{
+        "question": "Which country has the longest coastline?",
+        "correct": "Canada",
+        "incorrect1": "India",
+        "incorrect2": "China",
+        "incorrect3": "Egypt"
+    },
+    {
+        "question": "What's the longest river in the UK?",
+        "correct": "The River Severn",
+        "incorrect1": "River Thames",
+        "incorrect2": "River Trent",
+        "incorrect3": "River Wye"
+    },
+    {
+        "question": "What is the capital city of Portugal?",
+        "correct": "Lisbon",
+        "incorrect1": "Paris",
+        "incorrect2": "Brussels",
+        "incorrect3": "Wellington"
+    },
+    {
+        "question": "What percentage of the world's water do rivers and lakes hold?",
+        "correct": "1%",
+        "incorrect1": "10%",
+        "incorrect2": "23%",
+        "incorrect3": "15%"
+    }],
+    "title": "Geography fun",
+    "subject": "geography",
+    "schoolyear": "9",
+    "teacher": "Miss Smith"
+}
+
+###
+
+
+# GET BY subject
+
+
+GET http://localhost:8000/quiz?subject=geography&teacher=Miss Smith
+
+
+
+
+###
+
+DELETE http://localhost:8000/quiz/65d5d9b565a615699e4d646d
+
+
+###
+
+
+GET http://localhost:8000/quiz/65d48d8c276207429046b972
 
 ### Get event ###
 
