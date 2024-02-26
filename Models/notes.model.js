@@ -47,17 +47,6 @@ const notesSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  images: [
-    {
-      img_title:{
-        type:String
-      },
-      img_url:{
-        type: String,
-        required: true
-      }
-    }
-  ],
   img_url:{
     type: String
   }

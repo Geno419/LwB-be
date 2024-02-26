@@ -64,6 +64,7 @@ router.post("/", async (req, res) => {
     year,
     body,
     date,
+    img_url
   });
 
   try {
@@ -81,7 +82,7 @@ router.post("/", async (req, res) => {
 // DELETE a note by ID
 router.delete("/:id", getNote, async (req, res) => {
   try {
-    await res.note.remove();
+    await res.note.deleteOne();
     res.json({ message: "Note deleted" });
   } catch (err) {
     res.status(500).json({ message: err.message });
