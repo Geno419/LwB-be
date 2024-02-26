@@ -23,7 +23,7 @@ router.get('/', async (req, res)=>{
     if (req.query.title){
         query.title= req.query.title;
     }
-        const quizzes = await Quiz.find(query)
+        const quizzes = await Quiz.find(query).sort({ date: "desc" })
         res.status(200).send({quizzes})   
             
         
@@ -35,7 +35,7 @@ router.get('/', async (req, res)=>{
 // GET ALL QUIZ
 router.get('/', async (req, res)=>{
     try{
-        const quizzes = await Quiz.find();
+        const quizzes = await Quiz.find().sort({ date: "desc" });
         res.status(200).send({quizzes})
     }catch(err){
         res.status(400).json({message: err.message})

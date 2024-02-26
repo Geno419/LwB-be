@@ -57,7 +57,10 @@ const notesSchema = new mongoose.Schema({
         required: true
       }
     }
-  ]
+  ],
+  img_url:{
+    type: String
+  }
 });
 
 module.exports = mongoose.model("Notes", notesSchema);
