@@ -2,14 +2,12 @@ const express = require('express')
 const router = express.Router()
 const {update, deleteUser, getUser, getAllUsers} = require('../Controllers/teacher.controller')
 
-
-const verifyToken = require ("../verifyToken")
   
   //update teacher
-  router.put("/:id", verifyToken, update);
+  router.put("/:id", update);
   
   //delete teacher
-  router.delete("/:id", verifyToken, deleteUser);
+  router.delete("/:id", deleteUser);
   
   
   //get a teacher
