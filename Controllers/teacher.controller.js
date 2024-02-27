@@ -1,11 +1,10 @@
-const Teacher = require ("../Models/teacher.model.js")
+const Teacher = require("../Models/teacher.model.js");
 const bcrypt = require("bcrypt");
 
 const update = async (req, res, next) => {
-  const salt = bcrypt.genSaltSync(10);
-  const hash = bcrypt.hashSync(req.body.userPassword, salt);
-
-try {
+  try {
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(req.body.userPassword, salt);
     const updatedUser = await Teacher.findByIdAndUpdate(
       req.params.id,
       {
@@ -20,25 +19,24 @@ try {
   } catch (err) {
     next(err);
   }
-} 
+};
 
 const deleteUser = async (req, res, next) => {
-
   try {
     await Teacher.findByIdAndDelete(req.params.id);
     res.status(200).json("Teacher has been deleted.");
   } catch (err) {
     next(err);
   }
-}
+};
 
 const getUser = async (req, res, next) => {
-try {
-  const user = await Teacher.findById(req.params.id);
-  res.status(200).json(user);
-} catch (err) {
-  next(err);
-}
+  try {
+    const user = await Teacher.findById(req.params.id);
+    res.status(200).json(user);
+  } catch (err) {
+    next(err);
+  }
 };
 
 const getAllUsers = async (req, res, next) => {
@@ -48,6 +46,6 @@ const getAllUsers = async (req, res, next) => {
   } catch (err) {
     next(err);
   }
-  };
+};
 
-module.exports = { getUser, deleteUser, update, getAllUsers}
+module.exports = { getUser, deleteUser, update, getAllUsers };

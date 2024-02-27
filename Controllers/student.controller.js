@@ -2,10 +2,10 @@ const Student = require("../Models/student.model.js");
 const bcrypt = require("bcrypt");
 
 const update = async (req, res, next) => {
-  const salt = bcrypt.genSaltSync(10);
-  const hash = bcrypt.hashSync(req.body.userPassword, salt);
-
   try {
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(req.body.userPassword, salt);
+
     const updatedUser = await Student.findByIdAndUpdate(
       req.params.id,
       {
