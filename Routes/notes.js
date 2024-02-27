@@ -48,7 +48,7 @@ router.get("/:id", getNote, (req, res) => {
 
 // POST a new note
 router.post("/", async (req, res) => {
-  const { title, teacher, subject, category, body, year, date } = req.body;
+  const { title, teacher, subject, category, body, year, date, img_url } = req.body;
 
   if (!title || !teacher || !subject || !body) {
     return res.status(400).json({

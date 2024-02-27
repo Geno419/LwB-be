@@ -7,7 +7,7 @@ router.get('/', async (req, res)=>{
     try{
         const subjects = await Subject.find();
         res.status(200).send({subjects})
-        console.log(subjects)
+        
     }catch(err){
         res.status(400).json({message: err.message})
     }
