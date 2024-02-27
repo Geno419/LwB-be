@@ -1,14 +1,18 @@
-const createError = require("../error.js")
 const Teacher = require ("../Models/teacher.model.js")
+const bcrypt = require("bcrypt");
 
 const update = async (req, res, next) => {
- 
+  const salt = bcrypt.genSaltSync(10);
+  const hash = bcrypt.hashSync(req.body.userPassword, salt);
 
 try {
     const updatedUser = await Teacher.findByIdAndUpdate(
       req.params.id,
       {
-        $set: req.body,
+        $set: {
+          ...req.body,
+          userPassword: hash,
+        },
       },
       { new: true }
     );
