@@ -8,8 +8,6 @@ const authRoutes = require("./Routes/auth");
 const teacherRoutes = require("./Routes/teacher");
 const videoRoutes = require("./Routes/video");
 const studentRoutes = require("./Routes/student");
-const broadcastRoutes = require("./Routes/broadcast");
-const viewerRoutes = require("./Routes/viewer");
 const subjectRouter = require("./Routes/subject");
 const yearRouter = require("./Routes/year");
 const quizRouter = require("./Routes/quiz");
@@ -23,7 +21,6 @@ const eventRoutes = require("./Routes/event");
 
 app.use(cors());
 const uri = process.env.DB_URL;
-app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -57,9 +54,7 @@ app.use(cookieParser());
 app.use("/", authRoutes);
 app.use("/teachers", teacherRoutes);
 app.use("/students", studentRoutes);
-app.use("/consumer", viewerRoutes);
 app.use("/videos", videoRoutes);
-app.use("/broadcast", broadcastRoutes);
 app.use("/events", eventRoutes);
 app.use("/notes", notesRoutes);
 
@@ -70,14 +65,6 @@ app.use("/years", yearRouter);
 // Quiz
 app.use("/quiz", quizRouter);
 
-/////////////////////just for testing will be deleted///////////////////////////////////////
-app.get("/test", (req, res) => {
-  res.send({
-    test: "ALL GOOD!!",
-  });
-});
-
-////////////////////////////////////////////////////////////////////////////////////////////
 app.use((err, req, res, next) => {
   const status = err.status || 500;
   const message = err.message || "Something went wrong!";
