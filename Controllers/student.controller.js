@@ -6,16 +6,19 @@ const update = async (req, res, next) => {
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(req.body.userPassword, salt);
 
+    const { userPassword, ...otherInfo } = req.body;
+
     const updatedUser = await Student.findByIdAndUpdate(
       req.params.id,
       {
-        $set: {
-          ...req.body,
-          userPassword: hash,
-        },
+        $set: otherInfo,
       },
       { new: true }
     );
+
+    updatedUser.userPassword = hash;
+    await updatedUser.save();
+
     res.status(200).json(updatedUser);
   } catch (err) {
     next(err);
