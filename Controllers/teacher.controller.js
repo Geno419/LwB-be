@@ -1,5 +1,6 @@
 const Teacher = require("../Models/teacher.model.js");
 const bcrypt = require("bcrypt");
+const createError = require ("../error")
 
 const update = async (req, res, next) => {
   try {
