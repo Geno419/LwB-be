@@ -12,10 +12,6 @@ const subjectRouter = require("./Routes/subject");
 const yearRouter = require("./Routes/year");
 const quizRouter = require("./Routes/quiz");
 const notesRoutes = require("./Routes/notes");
-// const path = require("path");
-// const multer = require("multer");
-// const { GridFsStorage } = require("multer-gridfs-storage");
-// const Grid = require("gridfs-stream");
 const bodyParser = require("body-parser");
 const eventRoutes = require("./Routes/event");
 
@@ -36,22 +32,6 @@ async function connect() {
 connect();
 app.use(express.json());
 app.use(cookieParser());
-// Set up GridFS storage engine
-// const storage = new GridFsStorage({
-//   url: uri,
-//   file: (req, file) => {
-//     return {
-//       filename: file.originalname,
-//     };
-//   },
-// });
-// const upload = multer({ storage });
-// // Route to handle file uploads
-// app.post("/upload", upload.single("file"), (req, res) => {
-//   console.log("File uploaded successfully:", req.file);
-//   const fl = req.file;
-//   res.send({ file: fl, success: true, message: "File uploaded successfully" });
-// });
 app.use("/", authRoutes);
 app.use("/teachers", teacherRoutes);
 app.use("/students", studentRoutes);

@@ -74,7 +74,7 @@ To ensure secure handling of sensitive information such as database connection s
 Create a `.env` file in the root directory of your project if it doesn't exist already. Add the following line to the `.env` file:
 
 ```plaintext
-MONGODB_URI=your_mongodb_connection_string_here
+DB_URI=your_mongodb_connection_string_here
 ```
 
 Replace `your_mongodb_connection_string_here` with the actual connection string for your MongoDB database. This string typically includes the protocol (`mongodb://`), the database host, port (if not default), and authentication details if required.
@@ -86,7 +86,7 @@ For JWT encryption and decryption, you need to define a secret key. This key is 
 Create a `token.env` file in the root directory of your project. Add the following line to the `token.env` file:
 
 ```plaintext
-JWT_SECRET=your_jwt_secret_key_here
+JWT=your_jwt_secret_key_here
 ```
 
 Replace `your_jwt_secret_key_here` with a strong secret key of your choice. Ensure that this key is kept secure and not shared publicly.
@@ -98,13 +98,13 @@ Here's how your `.env` and `token.env` files might look:
 **.env:**
 
 ```plaintext
-MONGODB_URI=mongodb://username:password@localhost:27017/your_database
+DB_URI=mongodb://username:password@localhost:27017/your_database
 ```
 
 **token.env:**
 
 ```plaintext
-JWT_SECRET=mySuperSecretKey123!
+JWT=mySuperSecretKey123!
 ```
 
 Ensure that these files are included in your `.gitignore` file to prevent them from being pushed to your version control system and exposed publicly.
