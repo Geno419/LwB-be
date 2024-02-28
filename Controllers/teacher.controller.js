@@ -3,6 +3,10 @@ const bcrypt = require("bcrypt");
 
 const update = async (req, res, next) => {
   try {
+    const userExists = await Teacher.findOne({ userName: req.body.userName });
+    if (userExists) {
+      return next(createError(400, "Username already exists!"));
+  }
     const { userPassword, ...otherInfo } = req.body;
 
     const updatedUser = await Teacher.findByIdAndUpdate(
