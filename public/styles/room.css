@@ -70,27 +70,24 @@
   background-color: #2aca3e;
 }
 
-.member_name{
+.member_name {
   font-size: 14px;
   line-height: 0;
 }
 
 #messages__container {
   height: calc(100vh - 79px);
-  background-color:#077a54;
+  background-color: #077a54;
   right: 0;
   position: absolute;
   width: 100%;
   max-width: 25rem;
   overflow-y: auto;
-  
 }
 
 #messages {
   width: 100%;
   overflow-y: auto;
-  
-  
 }
 
 .message__wrapper:last-child {
@@ -116,23 +113,20 @@
   color: #ede0e0;
 }
 
-.message__body__bot{
+.message__body__bot {
   padding: 0 20px;
   max-width: 900px;
   color: #bdbdbd;
 }
 
-
 .message__author {
   margin-right: 10px;
-  color: #2aca3e!important;
-
+  color: #2aca3e !important;
 }
 
 .message__author__bot {
   margin-right: 10px;
-  color: #5efae5!important;
-
+  color: #5efae5 !important;
 }
 
 .message__text {
@@ -140,7 +134,6 @@
 }
 
 #message__form {
- 
   position: fixed;
   right: 0;
   position: absolute;
@@ -151,6 +144,9 @@
   display: block;
   background-color: #1a1a1a;
   padding: 1em;
+  border-top: black solid 0.2rem;
+  background-color: #077a54;
+  width: 100%;
 }
 
 #message__form input {
@@ -183,26 +179,26 @@
   background-color: #1a1a1a;
 }
 
-#stream__box{
-  background-color:white;
+#stream__box {
+  background-color: white;
   height: 60vh;
   display: none;
 }
 
-#stream__box .video__container{
+#stream__box .video__container {
   border: 2px solid #000;
   border-radius: 0;
-  height: 100%!important;
-  width:100%!important;
+  height: 100% !important;
+  width: 100% !important;
 
   background-size: 300px;
 }
 
-#stream__box video{
+#stream__box video {
   border-radius: 0;
 }
 
-#streams__container{
+#streams__container {
   display: flex;
   flex-wrap: wrap;
   /* gap: 2em; */
@@ -212,11 +208,11 @@
   margin-bottom: 225px;
 }
 
-.video__container{
+.video__container {
   display: flex;
   justify-content: center;
   align-items: center;
-  border:2px solid white;
+  border: 2px solid white;
   border-radius: 50%;
   cursor: pointer;
   overflow: hidden;
@@ -226,20 +222,20 @@
   background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/61146d126686813.615146a9bf709.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-size:cover
+  background-size: cover;
 }
 
-.video-player{
+.video-player {
   height: 100%;
   width: 100%;
 }
 
-.video-player video{
+.video-player video {
   border-radius: 50%;
 }
 
 @media (max-width: 1400px) {
-  .video__container{
+  .video__container {
     height: 200px;
     width: 200px;
   }
@@ -270,7 +266,9 @@
   }
 
   #message__form {
-    width: 18.2rem;
+    border-top: black solid 0.2rem;
+    background-color: #077a54;
+    width: 100%;
   }
 }
 
@@ -279,7 +277,7 @@
     width: 100%;
   }
 
-  .video__container{
+  .video__container {
     height: 100px;
     width: 100px;
   }
@@ -347,7 +345,7 @@
   background-color: #0b5753;
 }
 
-#join-btn{
+#join-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -365,7 +363,7 @@
   background-color: #077a54;
 }
 
-#join-btn:hover:not(:disabled)  {
+#join-btn:hover:not(:disabled) {
   background: #03e9f4;
   color: #fff;
   border-radius: 5px;
