@@ -1,10 +1,11 @@
 #form__container {
+  box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, 0.5);
   width: 100%;
   max-width: 600px;
   border-radius: 10px;
   border:none;
   outline:none;
-  background-color: #c0ebeb;
+  background: linear-gradient(90deg, #164d45 0%, #0b2627 100%);
   position: fixed;
   top: 50%;
   left: 50%;
@@ -17,26 +18,31 @@
 }
 
 #form__container__header {
-  padding:0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.5rem;
+  padding:0.1rem;
   border:none;
   outline:none;
   text-align: center;
-  background-color: #25272c;
+  background: linear-gradient(90deg, #43c6ac, #191654);
   margin: 0;
-  font-size: 28px;
-  font-size: 300;
-  
-  
+  font-size: 1.4rem;
+    
 }
 
 .form__field__wrapper {
+  transition: .2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  box-sizing: border-box;
-  margin-bottom: 20px;
 }
 
 .form__field__wrapper label {
-  font-size: 14px;
+  font-size: 1.5rem;
   line-height: 1.7em;
   margin-bottom: 10px;
   display: block;
@@ -44,36 +50,44 @@
 }
 
 .form__field__wrapper input {
-  box-sizing: border-box;
+  margin: 15px 0;
+  font-size: 16px;
+  padding: 10px;
+  width: 250px;
+  border: 1px solid rgba(10, 180, 180, 1);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background: #14141433;
   color: #fff;
-  width: 100%;
-  margin: 0;
-  border: none;
-  border-radius: 5px;
-  padding: 16px 20px;
-  font-size: 15px;
-  background-color: #3f434a;
+  outline: none;
+  
 }
 
 .form__field__wrapper button[type='submit'] {
-  margin-top: 32px;
-  cursor: pointer;
-  background-color: #25272c;
-  border: none;
-  color: #fff;
-  font-size: 16px;
-  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 12px;
-  border-radius: 5px;
-  gap: 10px;
+  align-items: center;
+  padding: 10px 20px;
+  color: #15172b;
+  font-size: 16px;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  margin: 3.3rem auto 2rem;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid #03e9f4;
+  background-color: #077a54;
 }
 
-.form__field__wrapper button[type='submit'] svg {
-  fill: #ede0e0;
-  width: 20px;
+.form__field__wrapper button[type='submit']:hover:not(:disabled)  {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+    0 0 100px #03e9f4;
 }
 
 #avatar__selection {
@@ -111,3 +125,4 @@
 #random:hover{
   cursor:pointer
 }
+
