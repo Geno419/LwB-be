@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
 * {
-  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: “Open Sans”, sans-serif;
 }
+
+
 
 /* width */
 ::-webkit-scrollbar {
@@ -27,10 +33,9 @@
 }
 
 body {
-  background-color: #1a1a1a;
-  color: #fff;
-
-  font-size: 14px;
+  background-color: #ffffff;
+  color: #fbfcfc;
+  font-size: 16px;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -55,7 +60,7 @@ a {
   border-radius: 50%;
 }
 
-#nav {
+#nav {  
   position: fixed;
   top: 0;
   width: 100%;
@@ -64,10 +69,37 @@ a {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #000000;
-  background-color:black;
+  background:  linear-gradient(90deg, #283c86 0%, #45a247 100%);
   text-decoration: none;
   padding: 16px 5%;
-  z-index: 999;
+  /* z-index: 999; */
+}
+
+.mainLogo1 img {
+  height: 46px;
+  width: 35px;
+  margin-right: 1.5em;
+}
+
+.mainLogo1 {
+  align-items: center;
+  display: flex;
+}
+
+.mainLogo1 a {
+  /* height: 1em; */
+  line-height: 1em;
+  color: white;
+}
+
+.mainLogo1 a h2 {
+  font-weight: 300;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.mainLogo1 a h2:hover {
+  color: yellow;
 }
 
 #logo {
