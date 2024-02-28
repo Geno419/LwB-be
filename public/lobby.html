@@ -21,26 +21,23 @@
   </head>
 
   <body>
-    <header id="nav" >
-      <div class="mainLogo1">
-        <img src="https://i.ibb.co/6yyxLWN/image-9.png" alt="LwB logo" />
-        <a href="https://learning-without-borders.netlify.app/teacher/home">
-          <h2>Home</h2>
+    <header id="nav">
+      <div class="nav--list">
+        <a href="lobby.html">
+          <h1>LwB</h1>
         </a>
       </div>
-      <div class="nav--list">
-        
-      </div>
     </header>
+
     <main id="room__lobby__container">
       <div id="form__container">
         <div id="form__container__header">
-          <p>👋 Create or Join Room</p>
+          <p>👋Join a Room</p>
         </div>
 
         <form id="lobby__form">
           <div class="form__field__wrapper">
-            <!-- <label>Your Name</label> -->
+            <label>Your Name</label>
             <input
               type="text"
               name="name"
@@ -48,15 +45,27 @@
               placeholder="Enter your display name..."
             />
           </div>
-
+          <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
           <div class="form__field__wrapper">
-            <!-- <label>Room ID</label> -->
-            <input type="text" name="room" placeholder="Enter room name..." />
+            <label for="teacherSelect">Select Teacher:</label>
+            <select id="teacherSelect" name="teacher">
+              <option value="">Select a teacher</option>
+            </select>
           </div>
 
           <div class="form__field__wrapper">
             <button type="submit">
               Go to Room
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"
+                />
+              </svg>
             </button>
           </div>
         </form>
