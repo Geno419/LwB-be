@@ -3,9 +3,6 @@ const bcrypt = require("bcrypt");
 
 const update = async (req, res, next) => {
   try {
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(req.body.userPassword, salt);
-
     const { userPassword, ...otherInfo } = req.body;
 
     const updatedUser = await Student.findByIdAndUpdate(
@@ -16,8 +13,13 @@ const update = async (req, res, next) => {
       { new: true }
     );
 
-    updatedUser.userPassword = hash;
-    await updatedUser.save();
+    if (userPassword) {
+      const salt = bcrypt.genSaltSync(10);
+      const hash = bcrypt.hashSync(req.body.userPassword, salt);
+
+      updatedUser.userPassword = hash;
+      await updatedUser.save();
+    }
 
     res.status(200).json(updatedUser);
   } catch (err) {
