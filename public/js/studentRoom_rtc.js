@@ -13,16 +13,16 @@ let rtmClient;
 let channel;
 
 const queryString = window.location.search;
-console.log(">queryString:", queryString);
 const urlParams = new URLSearchParams(queryString);
-const roomId = urlParams.get("roomId");
-const displayName = urlParams.get("displayName");
-
-console.log(">Room ID:", roomId);
-console.log(">Display Name:", displayName);
+let roomId = urlParams.get("roomId");
 
 if (!roomId) {
   roomId = "main";
+}
+
+let displayName = sessionStorage.getItem("display_name");
+if (!displayName) {
+  window.location = "lobby.html";
 }
 
 let localTracks = [];
