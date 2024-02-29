@@ -248,6 +248,7 @@
 
   #members__button {
     display: block;
+    color: #03e9f4;
   }
 
   #stream__container {
@@ -350,7 +351,6 @@
   justify-content: center;
   align-items: center;
   padding: 10px 20px;
-  color: #15172b;
   font-size: 16px;
   text-transform: uppercase;
   overflow: hidden;
@@ -361,6 +361,7 @@
   border-radius: 10px;
   border: 1px solid #03e9f4;
   background-color: #077a54;
+  color: #03e9f4;
   width: 15rem;
 }
 
@@ -377,7 +378,6 @@
   justify-content: center;
   align-items: center;
   padding: 10px 20px;
-  color: #15172b;
   font-size: 16px;
   text-transform: uppercase;
   overflow: hidden;
@@ -388,6 +388,7 @@
   border-radius: 10px;
   border: 1px solid #03e9f4;
   background-color: #077a54;
+  color: #03e9f4;
   width: 15rem;
 }
 
