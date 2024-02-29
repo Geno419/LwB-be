@@ -21,21 +21,20 @@
   </head>
 
   <body>
-    <header id="nav" >
+    <header id="nav">
       <div class="mainLogo1">
         <img src="https://i.ibb.co/6yyxLWN/image-9.png" alt="LwB logo" />
         <a href="https://learning-without-borders.netlify.app/student/home">
           <h2>Home</h2>
         </a>
       </div>
-      <div class="nav--list">
-      </div>
+      <div class="nav--list"></div>
     </header>
 
     <main id="room__lobby__container">
       <div id="form__container">
         <div id="form__container__header">
-          <p>👋Join a Room</p>
+          <p>Join a Room👋</p>
         </div>
 
         <form id="lobby__form">
@@ -51,15 +50,13 @@
           <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
           <div class="form__field__wrapper">
             <label for="teacherSelect">Select Teacher:</label>
-            <select id="teacherSelect" name="teacher">
+            <select id="teacherSelect" name="teacher" required>
               <option value="">Select a teacher</option>
             </select>
           </div>
 
           <div class="form__field__wrapper">
-            <button type="submit">
-              Go To Room
-            </button>
+            <button type="submit">Go To Room</button>
           </div>
         </form>
       </div>

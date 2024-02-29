@@ -93,17 +93,13 @@ Replace `your_jwt_secret_key_here` with a strong secret key of your choice. Ensu
 
 #### Example:
 
-Here's how your `.env` and `token.env` files might look:
+Here's how your `.env` files might look:
 
 **.env:**
 
 ```plaintext
 DB_URI=mongodb://username:password@localhost:27017/your_database
-```
 
-**token.env:**
-
-```plaintext
 JWT=mySuperSecretKey123!
 ```
 

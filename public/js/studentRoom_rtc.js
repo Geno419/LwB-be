@@ -53,9 +53,12 @@ let joinRoomInit = async () => {
   client.on("user-published", handleUserPublished);
   client.on("user-left", handleUserLeft);
 };
-
+const backToLobby = async () => {
+  window.location.href = "/lobby.html";
+};
 let joinStream = async () => {
   document.getElementById("join-btn").style.display = "none";
+  document.getElementById("back-btn").style.display = "none";
   document.getElementsByClassName("stream__actions")[0].style.display = "flex";
 
   localTracks = await AgoraRTC.createMicrophoneAndCameraTracks(
@@ -228,6 +231,7 @@ let leaveStream = async (e) => {
   e.preventDefault();
 
   document.getElementById("join-btn").style.display = "block";
+  document.getElementById("back-btn").style.display = "block";
   document.getElementsByClassName("stream__actions")[0].style.display = "none";
 
   for (let i = 0; localTracks.length > i; i++) {
@@ -260,7 +264,8 @@ let leaveStream = async (e) => {
 document.getElementById("camera-btn").addEventListener("click", toggleCamera);
 document.getElementById("mic-btn").addEventListener("click", toggleMic);
 document.getElementById("screen-btn").addEventListener("click", toggleScreen);
-document.getElementById("join-btn").addEventListener("click", joinStream);
 document.getElementById("leave-btn").addEventListener("click", leaveStream);
+document.getElementById("join-btn").addEventListener("click", joinStream);
+document.getElementById("back-btn").addEventListener("click", backToLobby);
 
 joinRoomInit();

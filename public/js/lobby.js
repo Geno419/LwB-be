@@ -16,7 +16,7 @@ form.addEventListener("submit", (e) => {
 
   let teacher = e.target.teacher.value;
   if (!teacher) {
-    alert("Please generate a RoomId or Give your RoomId");
+    alert("Please select a Teacher");
   } else {
     window.location = `studentRoom.html?roomId=${teacher}`;
     localStorage.setItem("roomId", teacher);
